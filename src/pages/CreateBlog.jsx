@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios"
+import { toast } from "react-toastify";
 const CreateBlogPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -24,9 +25,15 @@ const CreateBlogPage = () => {
       Authorization: "Bearer "+token,
     }
        
-    axios.post("https://backend2-udns.onrender.com/blog/create",formdata,{headers:header})
-    .then((res)=>console.log(res))
-    .catch((err)=>console.log(err))
+    axios.post("/blog/create",formdata,{headers:header})
+    .then((res)=>{
+      toast.success("blog created ")
+      console.log(res)
+    })
+    .catch((err)=>{
+      toast.error("something err")
+      console.log(err)
+    })
 
  
     // setTitle("");

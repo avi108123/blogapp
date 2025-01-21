@@ -20,7 +20,7 @@ const App = () => {
  {
   token &&
   useEffect(()=>{
-    axios.get("http://localhost:5000/user/verify",{headers:{Token:token}})
+    axios.get("https://backend2-udns.onrender.com/user/verify",{headers:{Token:token}})
     .then((res)=>setUser(res.data))
     .catch((err)=>console.log(err))
  },[])
