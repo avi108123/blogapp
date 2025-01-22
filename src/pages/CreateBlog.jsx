@@ -25,7 +25,7 @@ const CreateBlogPage = () => {
       Authorization: "Bearer "+token,
     }
        
-    axios.post("/blog/create",formdata,{headers:header})
+    axios.post("http://localhost:5000/blog/create",formdata,{headers:header})
     .then((res)=>{
       toast.success("blog created ")
       console.log(res)
